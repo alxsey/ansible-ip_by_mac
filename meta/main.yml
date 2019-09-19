@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Alex Ryabtsev
+  description: Discover IP address by NICs MAC address
+  company: NFKW
+  license: GPLv2
+  min_ansible_version: 2.8
+  platforms:
+  - name: Linux
+  versions:
+  - all
+  categories:
+    - system
+    - network
+

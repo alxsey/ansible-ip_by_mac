@@ -1,0 +1,28 @@
+---
+# getting list of available on the network IP addresses with respective MAC addresses
+# while there are other ways of doing it arp-scan is very fast but requires root
+- name: scan network for mac addresses
+  delegate_to: "{{ arp_scan_host }}"
+  become: yes
+  become_user: "{{ arp_scan_super }}"
+  become_method: "{{ arp_scan_become_method }}"
+  vars:
+    ansible_become_password: "{{ arp_scan_become_password }}"
+  shell: arp-scan -l | grep -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+  register: arpscan
+  changed_when: false
+
+# finding lines that contain one of our MAC addresses listed in main_mac
+- name: find host with main_mac address
+  set_fact:
+    lookup_host_line: "{{ (arpscan | to_json | lower | from_json | json_query(jsonquery)) }}"
+  vars:
+    jsonquery: 'stdout_lines[?contains(@, `{{ item }}`) == `true`]'
+  when: ((arpscan | to_json | lower | from_json | json_query(jsonquery)) | length) > 0
+  with_items:
+    - "{{ main_mac | lower }}"
+
+# finally set discovered_ip as current IP address of host
+- name: set discovered_ip
+  set_fact:
+    discovered_ip: "{{ lookup_host_line[0].split('\t')[0] }}"

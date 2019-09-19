@@ -1,0 +1,5 @@
+---
+arp_scan_host: localhost
+arp_scan_super: root
+arp_scan_become_method: sudo
+arp_scan_become_password: ''
