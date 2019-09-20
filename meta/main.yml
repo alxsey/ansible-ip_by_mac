@@ -8,6 +8,6 @@ galaxy_info:
   - name: Linux
   versions:
   - all
-  categories:
+  galaxy_tags:
     - system
-    - network
+    - networking
