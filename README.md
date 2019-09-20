@@ -1,4 +1,4 @@
-ip_by_mac
+ansible_ip_by_mac
 =========
 
 Finds IP of the device by looking up MAC addresses in `main_mac` variable.
@@ -35,7 +35,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: all_pi
       roles:
-         - { role: alxsey.ip_by_mac }
+         - { role: alxsey.ansible_ip_by_mac }
          
 More details can be found [here](example/).
 
