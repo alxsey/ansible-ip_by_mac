@@ -4,7 +4,7 @@
   gather_facts: no
 
   roles:
-  - alxsey.ip_by_mac
+  - alxsey.ansible_ip_by_mac
 
   tasks:
   - debug:
