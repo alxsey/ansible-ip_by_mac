@@ -1,9 +1,7 @@
 ip_by_mac
 =========
 
-Finds IP of the device by looking up 
-
-Routers are identified by MAC addresses in main_mac variable.
+Finds IP of the device by looking up MAC addresses in `main_mac` variable.
 
 Requirements
 ------------
@@ -15,10 +13,16 @@ Role Variables
 --------------
 Role supports several variables:
 `arp_scan_host` used to delegate network scanning to host. Host needs to have `arp-scan`. By default `localhost`
+
 `arp_scan_super` user allowed to run `arp-scan` on `arp_scan_host`. Most likely `root`
+
 `arp_scan_become_method` escalation methon on `arp_scan_host`. By default `sudo`
+
 `arp_scan_become_password` password (if it is required) for escalation
+
 `main_mac`list of MAC addresses. Best place to have it in Ansible Inventory
+
+`main_mac` can be list. In this case first present IP address will be used.
 
 Dependencies
 ------------
