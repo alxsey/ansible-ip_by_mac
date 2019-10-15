@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: ip_by_mac
   author: Alex Ryabtsev
   description: Discover IP address by NICs MAC address
   company: NFKW
