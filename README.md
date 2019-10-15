@@ -1,4 +1,4 @@
-ansible_ip_by_mac
+ip_by_mac
 =========
 
 Finds IP of the device by looking up MAC addresses in `main_mac` variable.
@@ -32,12 +32,12 @@ Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+```
     - hosts: all_pi
       roles:
-         - { role: alxsey.ansible_ip_by_mac }
-         
-More details can be found [here](example/).
+         - { role: alxsey.ip_by_mac }
+```
+More details can be found [here](https://github.com/alxsey/ansible-ip_by_mac/tree/master/example).
 
 License
 -------
